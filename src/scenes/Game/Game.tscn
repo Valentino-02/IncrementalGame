@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6qmg3bs0faof"]
+[gd_scene load_steps=7 format=3 uid="uid://b6qmg3bs0faof"]
 
 [ext_resource type="Script" uid="uid://dy8df4a47iw5a" path="res://src/scenes/Game/Game.gd" id="1_2odft"]
 [ext_resource type="PackedScene" uid="uid://cgbomhfyh5r" path="res://src/scenes/Game/Components/FogEffect.tscn" id="1_57sbl"]
 [ext_resource type="PackedScene" uid="uid://bvygpavv7ecpd" path="res://src/scenes/UI/GameUI/GameUI.tscn" id="2_klkct"]
+[ext_resource type="PackedScene" uid="uid://bwioj2tfqj51y" path="res://src/scenes/Game/Components/CycleIndicator.tscn" id="4_m5ppy"]
+[ext_resource type="PackedScene" uid="uid://cbklvnlwpoem8" path="res://src/scenes/Game/Components/ChangeCameraButton.tscn" id="5_nm77w"]
+[ext_resource type="PackedScene" uid="uid://dmvsxm8femdni" path="res://src/scenes/UI/GameUI/PassTime/PassTimeUI.tscn" id="6_nm77w"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_2odft")
@@ -25,3 +28,26 @@ color = Color(0.0753173, 5.46434e-06, 0.0753164, 1)
 layer = 2
 
 [node name="GameUI" parent="UI" instance=ExtResource("2_klkct")]
+
+[node name="CycleIndicator" parent="." instance=ExtResource("4_m5ppy")]
+position = Vector2(960, 1080)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="ChangeCameraButton" parent="." instance=ExtResource("5_nm77w")]
+position = Vector2(960, 1008)
+
+[node name="PassTimeUI" parent="." instance=ExtResource("6_nm77w")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 960.0
+offset_top = 100.0
+offset_right = 960.0
+offset_bottom = 100.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

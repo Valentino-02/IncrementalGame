@@ -1,6 +1,9 @@
-[gd_scene load_steps=2 format=3 uid="uid://bvygpavv7ecpd"]
+[gd_scene load_steps=5 format=3 uid="uid://bvygpavv7ecpd"]
 
 [ext_resource type="PackedScene" uid="uid://bpvu5ti8bdk7a" path="res://src/scenes/UI/GameUI/PauseMenu/PauseMenu.tscn" id="1_dcqij"]
+[ext_resource type="PackedScene" uid="uid://ggjmvqcuwdis" path="res://src/scenes/UI/GameUI/CurrencyCounter/CurrencyCounterUI.tscn" id="3_elwfl"]
+[ext_resource type="Texture2D" uid="uid://bysjgbm6p7kg3" path="res://assets/images/MoonIcon.png" id="4_b00as"]
+[ext_resource type="Texture2D" uid="uid://cgi3qrab3jdrx" path="res://assets/images/SunIcon.png" id="5_dw237"]
 
 [node name="GameUI" type="Control"]
 layout_mode = 3
@@ -13,3 +16,23 @@ grow_vertical = 2
 [node name="PauseMenu" parent="." instance=ExtResource("1_dcqij")]
 visible = false
 layout_mode = 1
+
+[node name="SunCurrencyCounter" parent="." instance=ExtResource("3_elwfl")]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 200.0
+texture = ExtResource("5_dw237")
+
+[node name="MoonCurrencyCounter2" parent="." instance=ExtResource("3_elwfl")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -200.0
+offset_top = 20.0
+offset_right = -20.0
+grow_horizontal = 0
+cycle = 1
+texture = ExtResource("4_b00as")

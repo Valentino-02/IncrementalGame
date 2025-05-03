@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbklvnlwpoem8"]
+
+[ext_resource type="Texture2D" uid="uid://div3hsj1c2kmc" path="res://assets/images/fall-down.png" id="1_ipk7l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nm77w"]
+size = Vector2(48, 109)
+
+[node name="ChangeCameraButton" type="Area2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.6, 0.0588235, 0.294118, 1)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_ipk7l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_nm77w")
