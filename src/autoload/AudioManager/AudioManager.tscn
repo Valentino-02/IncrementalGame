@@ -1,0 +1,52 @@
+[gd_scene load_steps=11 format=3 uid="uid://bk6c4tww78yhq"]
+
+[ext_resource type="Script" uid="uid://6mmbqgcmbnkt" path="res://src/autoload/AudioManager/AudioManager.gd" id="1_7j23j"]
+[ext_resource type="Script" uid="uid://b60hxo568dw0w" path="res://src/autoload/AudioManager/Sfx/SfxManager.gd" id="2_7j23j"]
+[ext_resource type="Script" uid="uid://dhwrmwr6mxae8" path="res://src/autoload/AudioManager/Music/MusicManager.gd" id="2_ge8yv"]
+[ext_resource type="Script" uid="uid://b67exh4v0a6ij" path="res://src/autoload/AudioManager/Music/MusicResource.gd" id="3_p58k6"]
+[ext_resource type="AudioStream" uid="uid://bdl81wqkmx2u5" path="res://assets/music/Elemental Delivery.mp3" id="4_u4rwl"]
+[ext_resource type="Script" uid="uid://cm215ucy36ahr" path="res://src/autoload/AudioManager/Sfx/SfxResource.gd" id="6_4cy6h"]
+[ext_resource type="AudioStream" uid="uid://ce0ty7xmbm66h" path="res://assets/sfx/Click.mp3" id="7_8ooo6"]
+
+[sub_resource type="Resource" id="Resource_vycle"]
+script = ExtResource("3_p58k6")
+stream = ExtResource("4_u4rwl")
+volume = 0.0
+pitchScale = 1.0
+metadata/_custom_type_script = "uid://b67exh4v0a6ij"
+
+[sub_resource type="Resource" id="Resource_4cy6h"]
+script = ExtResource("3_p58k6")
+stream = ExtResource("4_u4rwl")
+volume = 0.0
+pitchScale = 1.0
+metadata/_custom_type_script = "uid://b67exh4v0a6ij"
+
+[sub_resource type="Resource" id="Resource_dsnk3"]
+script = ExtResource("6_4cy6h")
+stream = ExtResource("7_8ooo6")
+volume = 0.0
+pitchScale = 1.0
+limit = 5
+metadata/_custom_type_script = "uid://cm215ucy36ahr"
+
+[node name="AudioManager" type="Node"]
+script = ExtResource("1_7j23j")
+
+[node name="MusicManager" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_ge8yv")
+preloadedMusic = Dictionary[int, ExtResource("3_p58k6")]({
+0: SubResource("Resource_vycle"),
+1: SubResource("Resource_4cy6h")
+})
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="MusicManager"]
+bus = &"Music"
+
+[node name="SfxManager" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_7j23j")
+preloadedSfx = Dictionary[int, ExtResource("6_4cy6h")]({
+0: SubResource("Resource_dsnk3")
+})

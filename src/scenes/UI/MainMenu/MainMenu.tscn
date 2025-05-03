@@ -1,0 +1,44 @@
+[gd_scene load_steps=3 format=3 uid="uid://c5h473qkqkmcg"]
+
+[ext_resource type="Theme" uid="uid://b6o24n8fr7hfj" path="res://resources/themes/CustomTheme.tres" id="1_8xvfs"]
+[ext_resource type="Script" uid="uid://cigwrtdx1cq0l" path="res://src/scenes/UI/MainMenu/MainMenu.gd" id="2_vahk2"]
+
+[node name="MainMenu" type="CanvasLayer"]
+script = ExtResource("2_vahk2")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_8xvfs")
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.1
+anchor_right = 0.9
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartGameButton" type="Button" parent="Control/Panel"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.0
+offset_top = -24.0
+offset_right = 73.0
+offset_bottom = 24.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+text = "Start Game"
+
+[connection signal="pressed" from="Control/Panel/StartGameButton" to="." method="_on_start_game_button_pressed"]
