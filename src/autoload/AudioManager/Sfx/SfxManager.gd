@@ -1,9 +1,13 @@
 class_name SfxManager
 extends Node2D
 
+enum SfxId {
+	Click,
+}
+
 const SFX_BUS_NAME = 'Sfx'
 
-@export var preloadedSfx: Dictionary[AudioManager.SfxId, SfxResource]
+@export var preloadedSfx: Dictionary[SfxId, SfxResource]
 
 var _sfxBusIndex : int = -1
 
@@ -15,7 +19,7 @@ func _ready() -> void:
 func getBusIndex() -> int:
 	return _sfxBusIndex
 
-func playAtPosition(id: AudioManager.SfxId, pos: Vector2) -> void:
+func playAtPosition(id: SfxId, pos: Vector2) -> void:
 	var sfx : SfxResource = preloadedSfx.get(id) as SfxResource
 	if sfx == null:
 		push_error("Sfx Manager failed to find sfx with id ", id)
@@ -34,7 +38,7 @@ func playAtPosition(id: AudioManager.SfxId, pos: Vector2) -> void:
 	add_child(player2D)
 	player2D.play()
 
-func play(id: AudioManager.SfxId) -> void:
+func play(id: SfxId) -> void:
 	var sfx : SfxResource = preloadedSfx.get(id) as SfxResource
 	if sfx == null:
 		push_error("Sfx Manager failed to find sfx with id ", id)

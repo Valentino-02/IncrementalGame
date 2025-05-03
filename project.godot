@@ -37,6 +37,10 @@ window/stretch/mode="canvas_items"
 
 project/assembly_name="GameDevJam"
 
+[gui]
+
+theme/custom="uid://b6o24n8fr7hfj"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

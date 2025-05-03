@@ -7,9 +7,9 @@ extends Resource
 @export_range(0, 10) var limit: int = 5 
 
 var _count: int = 0 
-var _id : AudioManager.SfxId 
+var _id : SfxManager.SfxId 
 
-func setId(id: AudioManager.SfxId) -> void:
+func setId(id: SfxManager.SfxId) -> void:
 	_id = id
 
 func addCount() -> void:

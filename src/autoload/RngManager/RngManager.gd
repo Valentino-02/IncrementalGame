@@ -19,6 +19,6 @@ func getSeed() -> int:
 	return _seed
 
 func createRng() -> RandomNumberGenerator:
-	var rng := RandomNumberGenerator.new()
-	rng.seed = _seed
-	return rng
+	var newRng := RandomNumberGenerator.new()
+	newRng.seed = _seed
+	return newRng

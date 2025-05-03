@@ -1,9 +1,14 @@
 class_name MusicManager
 extends Node
 
+enum MusicId {
+	MainMenuTheme,
+	GameTheme
+}
+
 const MUSIC_BUS_NAME = 'Music'
 
-@export var preloadedMusic: Dictionary[AudioManager.MusicId , MusicResource]
+@export var preloadedMusic: Dictionary[MusicId , MusicResource]
 
 @onready var _player : AudioStreamPlayer = $AudioStreamPlayer
 
@@ -18,7 +23,7 @@ func _ready() -> void:
 func getBusIndex() -> int:
 	return _musicBusIndex
 
-func play(id: AudioManager.MusicId, fadeInDuration: float = 0.0) -> void:
+func play(id: MusicId, fadeInDuration: float = 0.0) -> void:
 	var music : MusicResource = preloadedMusic.get(id) as MusicResource
 	if music == null:
 		push_error("Sfx Manager failed to find music with id ", id)
@@ -31,13 +36,13 @@ func stop(fadeOutDuration: float = 0.0) -> void:
 	await _fadeOut(fadeOutDuration)
 	_player.stop()
 
-func enableLowPass(duration:= 0.5) -> void:
-	var tween = get_tree().create_tween()
+func enableLowPass(duration:= 0.25) -> void:
+	var tween = create_tween()
 	var effect = AudioServer.get_bus_effect(_musicBusIndex, 0)
 	tween.tween_property(effect, "cutoff_hz", Settings.LOW_PASS_HZ_VALUE, duration).set_trans(Tween.TRANS_LINEAR)
 
 func disableLowPass(duration:= 0.5) -> void:
-	var tween = get_tree().create_tween()
+	var tween = create_tween()
 	var effect = AudioServer.get_bus_effect(_musicBusIndex, 0)
 	tween.tween_property(effect, "cutoff_hz", Settings.NORMAL_HZ_VALUE, duration).set_trans(Tween.TRANS_LINEAR)
 

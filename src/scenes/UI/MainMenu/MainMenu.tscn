@@ -1,6 +1,5 @@
-[gd_scene load_steps=3 format=3 uid="uid://c5h473qkqkmcg"]
+[gd_scene load_steps=2 format=3 uid="uid://c5h473qkqkmcg"]
 
-[ext_resource type="Theme" uid="uid://b6o24n8fr7hfj" path="res://resources/themes/CustomTheme.tres" id="1_8xvfs"]
 [ext_resource type="Script" uid="uid://cigwrtdx1cq0l" path="res://src/scenes/UI/MainMenu/MainMenu.gd" id="2_vahk2"]
 
 [node name="MainMenu" type="CanvasLayer"]
@@ -13,7 +12,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("1_8xvfs")
 
 [node name="Panel" type="Panel" parent="Control"]
 layout_mode = 1
