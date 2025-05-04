@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="CoinStrategy" load_steps=2 format=3 uid="uid://dvhi7urqg01gk"]
+
+[ext_resource type="Script" uid="uid://cidigq0dc6ojx" path="res://src/models/Strategies/CoinStrategy.gd" id="1_48ig1"]
+
+[resource]
+script = ExtResource("1_48ig1")
+target = 0
+metadata/_custom_type_script = "uid://cidigq0dc6ojx"

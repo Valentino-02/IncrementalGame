@@ -11,7 +11,8 @@ var _currency : int:
 func _init() -> void:
 	SignalBus.tickAdvanced.connect(_onTickAdvanced)
 	SignalBus.cyclePassed.connect(_onCyclePassed)
-
+	SignalBus.maxCurrencyReached.connect(_onMaxCurrencyReached)
+	SignalBus.coinCollected.connect(_onCoinPicked)
 
 func getCurrency() -> int:
 	return _currency
@@ -32,3 +33,11 @@ func _onCyclePassed(toCycle: Types.Cycle) -> void:
 		_isGenerating = true
 	else:
 		_isGenerating = false
+
+func _onMaxCurrencyReached() -> void:
+	_currency = 0
+
+func _onCoinPicked(type: Types.Cycle) -> void:
+	if type != Types.Cycle.Moon:
+		return
+	_currency += _currencyPerTick

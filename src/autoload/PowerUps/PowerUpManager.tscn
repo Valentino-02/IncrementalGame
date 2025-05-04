@@ -1,79 +1,412 @@
-[gd_scene load_steps=15 format=3 uid="uid://dbbpt8vhyxpk6"]
+[gd_scene load_steps=54 format=3 uid="uid://dbbpt8vhyxpk6"]
 
 [ext_resource type="Script" uid="uid://cy648l0l43n4n" path="res://src/autoload/PowerUps/PowerUpManager.gd" id="1_835b4"]
 [ext_resource type="Script" uid="uid://dq3cmtvofpbf7" path="res://src/autoload/PowerUps/PowerUpResource.gd" id="2_p3l6b"]
 [ext_resource type="Texture2D" uid="uid://dd2utuu1omhuo" path="res://assets/images/bleeding-eye.png" id="3_4hm2v"]
 [ext_resource type="Texture2D" uid="uid://d3nkgooeguffd" path="res://assets/images/cheerful.png" id="4_rbyb4"]
-[ext_resource type="Script" uid="uid://bhp7k6yaomg51" path="res://src/autoload/PowerUps/Strategies/WorldStateStrategy.gd" id="4_vhvy6"]
+[ext_resource type="Script" uid="uid://bhp7k6yaomg51" path="res://src/models/Strategies/WorldStateStrategy.gd" id="4_vhvy6"]
 [ext_resource type="Texture2D" uid="uid://bwhju6e1dwqli" path="res://assets/images/fireflake.png" id="5_4hm2v"]
 [ext_resource type="Texture2D" uid="uid://crcikabvleip6" path="res://assets/images/moon.png" id="5_rbyb4"]
-[ext_resource type="Script" uid="uid://dulds1fkfh7cw" path="res://src/autoload/PowerUps/Strategies/CurrencyStrategy.gd" id="7_vhvy6"]
+[ext_resource type="Script" uid="uid://hd12f6fehvcb" path="res://src/models/Strategies/MaxCurrencyStrategy.gd" id="6_323qj"]
+[ext_resource type="Texture2D" uid="uid://doq7rb5r7km20" path="res://assets/images/coinflip.png" id="7_fkth6"]
+[ext_resource type="Script" uid="uid://dulds1fkfh7cw" path="res://src/models/Strategies/CurrencyStrategy.gd" id="7_vhvy6"]
+[ext_resource type="Script" uid="uid://cidigq0dc6ojx" path="res://src/models/Strategies/CoinStrategy.gd" id="8_hn276"]
 
-[sub_resource type="Resource" id="Resource_r515d"]
+[sub_resource type="Resource" id="Resource_potpd"]
 script = ExtResource("2_p3l6b")
 icon = ExtResource("3_4hm2v")
-title = "Eye of Revelation"
-sunCost = 20
-moonCost = 20
-description = "A grotesque eye, eternally weeping blood, that gazes through the veil of reality.
-Those who dare to look gain insight into forbidden paths, unlocking the first steps of transformation.
-But beware—what is seen cannot be unseen."
+title = "See Beyond This Veil"
+sunCost = 5
+moonCost = 5
+description = "Reality trembles as you tear through the thin skin of the world.
+With offerings of light and dark, you will reach forgotten truths.
+But remember, what is learnt cant be forgotten."
 strategies = Array[ExtResource("4_vhvy6")]([])
 metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
 
-[sub_resource type="Resource" id="Resource_vhvy6"]
+[sub_resource type="Resource" id="Resource_85j2m"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("3_4hm2v")
+title = "Reach Further..."
+sunCost = 30
+moonCost = 30
+description = "You've pierced the veil once—now you press deeper, where even memory decays.
+More light, more dark, more self must be given.
+"
+strategies = Array[ExtResource("4_vhvy6")]([])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_bqph5"]
+script = ExtResource("6_323qj")
+amount = 15
+metadata/_custom_type_script = "uid://hd12f6fehvcb"
+
+[sub_resource type="Resource" id="Resource_k0my4"]
 script = ExtResource("2_p3l6b")
 icon = ExtResource("4_rbyb4")
 title = "Crimson Pact"
-sunCost = 40
-moonCost = 40
-description = "A pulsing heart, not your own, beats with unnatural vigor.
-By binding with it, you embrace the strength of ancient blood, gaining vitality beyond mortal limits.
+sunCost = 5
+moonCost = 5
+description = "A pulsing heart, beats with unnatural vigor.
+By binding with it, your vitality grows higher, allowing you to reach higher places.
 Yet with every beat, you feel something watching from within."
-strategies = Array[ExtResource("4_vhvy6")]([])
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_bqph5")])
 metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
 
-[sub_resource type="Resource" id="Resource_fkth6"]
+[sub_resource type="Resource" id="Resource_6t36x"]
+script = ExtResource("6_323qj")
+amount = 25
+metadata/_custom_type_script = "uid://hd12f6fehvcb"
+
+[sub_resource type="Resource" id="Resource_vdst4"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("4_rbyb4")
+title = "Crimson Pact 2"
+sunCost = 12
+moonCost = 12
+description = "A pulsing heart, beats with unnatural vigor.
+By binding with it, your vitality grows higher, allowing you to reach higher places.
+Yet with every beat, you feel something watching from within."
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_6t36x")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_m37vf"]
+script = ExtResource("6_323qj")
+amount = 40
+metadata/_custom_type_script = "uid://hd12f6fehvcb"
+
+[sub_resource type="Resource" id="Resource_by7sa"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("4_rbyb4")
+title = "Crimson Pact 3"
+sunCost = 20
+moonCost = 20
+description = "A pulsing heart, beats with unnatural vigor.
+By binding with it, your vitality grows higher, allowing you to reach higher places.
+Yet with every beat, you feel something watching from within."
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_m37vf")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_iq0bq"]
+script = ExtResource("6_323qj")
+amount = 50
+metadata/_custom_type_script = "uid://hd12f6fehvcb"
+
+[sub_resource type="Resource" id="Resource_2brq0"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("4_rbyb4")
+title = "Crimson Pact 4"
+sunCost = 30
+moonCost = 30
+description = "A pulsing heart, beats with unnatural vigor.
+By binding with it, your vitality grows higher, allowing you to reach higher places.
+Yet with every beat, you feel something watching from within."
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_iq0bq")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_nm8d2"]
+script = ExtResource("6_323qj")
+amount = 75
+metadata/_custom_type_script = "uid://hd12f6fehvcb"
+
+[sub_resource type="Resource" id="Resource_adshd"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("4_rbyb4")
+title = "Crimson Pact 5"
+sunCost = 40
+moonCost = 40
+description = "A pulsing heart, beats with unnatural vigor.
+By binding with it, your vitality grows higher, allowing you to reach higher places.
+Yet with every beat, you feel something watching from within."
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_nm8d2")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_a0vsg"]
+script = ExtResource("6_323qj")
+amount = 125
+metadata/_custom_type_script = "uid://hd12f6fehvcb"
+
+[sub_resource type="Resource" id="Resource_dco7s"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("4_rbyb4")
+title = "Crimson Pact 6"
+sunCost = 80
+moonCost = 80
+description = "A pulsing heart, beats with unnatural vigor.
+By binding with it, your vitality grows higher, allowing you to reach higher places.
+Yet with every beat, you feel something watching from within."
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_a0vsg")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_ggssd"]
+script = ExtResource("6_323qj")
+amount = 200
+metadata/_custom_type_script = "uid://hd12f6fehvcb"
+
+[sub_resource type="Resource" id="Resource_8wkbs"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("4_rbyb4")
+title = "Crimson Pact 7"
+sunCost = 100
+moonCost = 100
+description = "A pulsing heart, beats with unnatural vigor.
+By binding with it, your vitality grows higher, allowing you to reach higher places.
+Yet with every beat, you feel something watching from within."
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_ggssd")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_actyo"]
+script = ExtResource("6_323qj")
+amount = 400
+metadata/_custom_type_script = "uid://hd12f6fehvcb"
+
+[sub_resource type="Resource" id="Resource_trekq"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("4_rbyb4")
+title = "Crimson Pact 7"
+sunCost = 150
+moonCost = 150
+description = "A pulsing heart, beats with unnatural vigor.
+By binding with it, your vitality grows higher, allowing you to reach higher places.
+Yet with every beat, you feel something watching from within."
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_actyo")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_3mi2f"]
+script = ExtResource("6_323qj")
+amount = 600
+metadata/_custom_type_script = "uid://hd12f6fehvcb"
+
+[sub_resource type="Resource" id="Resource_uv5nm"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("4_rbyb4")
+title = "Crimson Pact 9"
+sunCost = 300
+moonCost = 300
+description = "A pulsing heart, beats with unnatural vigor.
+By binding with it, your vitality grows higher, allowing you to reach higher places.
+Yet with every beat, you feel something watching from within."
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_3mi2f")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_8gy00"]
+script = ExtResource("6_323qj")
+amount = 999
+metadata/_custom_type_script = "uid://hd12f6fehvcb"
+
+[sub_resource type="Resource" id="Resource_pd6wh"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("4_rbyb4")
+title = "Crimson Pact 7"
+sunCost = 500
+moonCost = 500
+description = "A pulsing heart, beats with unnatural vigor.
+By binding with it, your vitality grows higher, allowing you to reach higher places.
+Yet with every beat, you feel something watching from within."
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_8gy00")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_uhunf"]
+script = ExtResource("8_hn276")
+target = 0
+metadata/_custom_type_script = "uid://cidigq0dc6ojx"
+
+[sub_resource type="Resource" id="Resource_dr3cl"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("7_fkth6")
+title = "Echo of the Radiant Tithe"
+sunCost = 5
+moonCost = 15
+description = "In forgotten times, worshippers offered gold to the sun—coins that shimmered with its eternal blaze.
+Now, echoes of that devotion reappear, scattered like embers.
+"
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_uhunf")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_4thmf"]
+script = ExtResource("8_hn276")
+target = 1
+metadata/_custom_type_script = "uid://cidigq0dc6ojx"
+
+[sub_resource type="Resource" id="Resource_q30ao"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("7_fkth6")
+title = "Trace of the Hollow Offering"
+sunCost = 15
+moonCost = 5
+description = "The moon does not forget its dues.
+Where shadows pool, silver tokens emerge—fragments of ancient rites whispered in sleep.
+"
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_4thmf")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_hn276"]
 script = ExtResource("7_vhvy6")
 target = 1
 amount = 2
 metadata/_custom_type_script = "uid://dulds1fkfh7cw"
 
-[sub_resource type="Resource" id="Resource_rbyb4"]
+[sub_resource type="Resource" id="Resource_0ober"]
 script = ExtResource("2_p3l6b")
 icon = ExtResource("5_rbyb4")
 title = "Umbral Oath"
-sunCost = 30
-moonCost = 0
+sunCost = 40
+moonCost = 25
 description = "The moon weeps in silence, its tears swallowed by the void.
-By swearing fealty in the hush between breaths, you draw deeper from its shadowed well.
-Darkness answers in kind—generous, patient, and ever-hungry."
-strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_fkth6")])
+Swear your loyalty in the hush between breaths, and its sorrow becomes yours.
+
+"
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_hn276")])
 metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
 
-[sub_resource type="Resource" id="Resource_hn276"]
+[sub_resource type="Resource" id="Resource_5gffa"]
+script = ExtResource("7_vhvy6")
+target = 1
+amount = 3
+metadata/_custom_type_script = "uid://dulds1fkfh7cw"
+
+[sub_resource type="Resource" id="Resource_16ifm"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("5_rbyb4")
+title = "Umbral Oath 2"
+sunCost = 100
+moonCost = 40
+description = "The moon weeps in silence, its tears swallowed by the void.
+Swear your loyalty in the hush between breaths, and its sorrow becomes yours.
+
+"
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_5gffa")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_g3qtr"]
+script = ExtResource("7_vhvy6")
+target = 1
+amount = 4
+metadata/_custom_type_script = "uid://dulds1fkfh7cw"
+
+[sub_resource type="Resource" id="Resource_allh8"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("5_rbyb4")
+title = "Umbral Oath 3"
+sunCost = 200
+moonCost = 100
+description = "The moon weeps in silence, its tears swallowed by the void.
+Swear your loyalty in the hush between breaths, and its sorrow becomes yours.
+
+"
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_g3qtr")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_tj1yl"]
+script = ExtResource("7_vhvy6")
+target = 1
+amount = 5
+metadata/_custom_type_script = "uid://dulds1fkfh7cw"
+
+[sub_resource type="Resource" id="Resource_13mak"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("5_rbyb4")
+title = "Umbral Oath 4"
+sunCost = 500
+moonCost = 250
+description = "The moon weeps in silence, its tears swallowed by the void.
+Swear your loyalty in the hush between breaths, and its sorrow becomes yours.
+
+"
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_tj1yl")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_72m4u"]
 script = ExtResource("7_vhvy6")
 target = 0
 amount = 2
 metadata/_custom_type_script = "uid://dulds1fkfh7cw"
 
-[sub_resource type="Resource" id="Resource_323qj"]
+[sub_resource type="Resource" id="Resource_kvxdj"]
 script = ExtResource("2_p3l6b")
 icon = ExtResource("5_4hm2v")
 title = "Lumen Covenant"
-sunCost = 0
-moonCost = 30
-description = "The sun speaks in whispers only the initiated can hear.
-Through ritual and reverence, you channel its radiance—not warmth, but raw, searing essence.
-Each invocation burns brighter, yielding more of its blinding truth... and its demands."
-strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_hn276")])
+sunCost = 15
+moonCost = 40
+description = "The sun speaks in whispers only the devoted can endure.
+Through ritual and reverence, you channel its radiance—not warmth, but a searing, hungry light."
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_72m4u")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_aayab"]
+script = ExtResource("7_vhvy6")
+target = 0
+amount = 3
+metadata/_custom_type_script = "uid://dulds1fkfh7cw"
+
+[sub_resource type="Resource" id="Resource_3jy6i"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("5_4hm2v")
+title = "Lumen Covenant"
+sunCost = 50
+moonCost = 100
+description = "The sun speaks in whispers only the devoted can endure.
+Through ritual and reverence, you channel its radiance—not warmth, but a searing, hungry light."
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_aayab")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_g7a1r"]
+script = ExtResource("7_vhvy6")
+target = 0
+amount = 4
+metadata/_custom_type_script = "uid://dulds1fkfh7cw"
+
+[sub_resource type="Resource" id="Resource_4dxhi"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("5_4hm2v")
+title = "Lumen Covenant"
+sunCost = 100
+moonCost = 200
+description = "The sun speaks in whispers only the devoted can endure.
+Through ritual and reverence, you channel its radiance—not warmth, but a searing, hungry light."
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_g7a1r")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_n878u"]
+script = ExtResource("7_vhvy6")
+target = 0
+amount = 5
+metadata/_custom_type_script = "uid://dulds1fkfh7cw"
+
+[sub_resource type="Resource" id="Resource_4s8ms"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("5_4hm2v")
+title = "Lumen Covenant"
+sunCost = 250
+moonCost = 500
+description = "The sun speaks in whispers only the devoted can endure.
+Through ritual and reverence, you channel its radiance—not warmth, but a searing, hungry light."
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_n878u")])
 metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
 
 [node name="PowerUpManager" type="Node"]
 script = ExtResource("1_835b4")
 powerUps = Dictionary[int, ExtResource("2_p3l6b")]({
-0: SubResource("Resource_r515d"),
-1: SubResource("Resource_vhvy6"),
-2: SubResource("Resource_rbyb4"),
-3: SubResource("Resource_323qj")
+0: SubResource("Resource_potpd"),
+1: SubResource("Resource_85j2m"),
+2: SubResource("Resource_k0my4"),
+3: SubResource("Resource_vdst4"),
+4: SubResource("Resource_by7sa"),
+5: SubResource("Resource_2brq0"),
+6: SubResource("Resource_adshd"),
+7: SubResource("Resource_dco7s"),
+8: SubResource("Resource_8wkbs"),
+9: SubResource("Resource_trekq"),
+10: SubResource("Resource_uv5nm"),
+11: SubResource("Resource_pd6wh"),
+12: SubResource("Resource_dr3cl"),
+13: SubResource("Resource_q30ao"),
+14: SubResource("Resource_0ober"),
+15: SubResource("Resource_16ifm"),
+16: SubResource("Resource_allh8"),
+17: SubResource("Resource_13mak"),
+18: SubResource("Resource_kvxdj"),
+19: SubResource("Resource_3jy6i"),
+20: SubResource("Resource_4dxhi"),
+21: SubResource("Resource_4s8ms")
 })

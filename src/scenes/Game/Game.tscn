@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b6qmg3bs0faof"]
+[gd_scene load_steps=10 format=3 uid="uid://b6qmg3bs0faof"]
 
 [ext_resource type="Script" uid="uid://dy8df4a47iw5a" path="res://src/scenes/Game/Game.gd" id="1_2odft"]
 [ext_resource type="PackedScene" uid="uid://cgbomhfyh5r" path="res://src/scenes/Game/Components/FogEffect.tscn" id="1_57sbl"]
@@ -8,9 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://dmvsxm8femdni" path="res://src/scenes/UI/GameUI/PassTime/PassTimeUI.tscn" id="6_nm77w"]
 [ext_resource type="PackedScene" uid="uid://rhijis2dd83n" path="res://src/scenes/UI/GameUI/TextDisplayer/TextDisplayer.tscn" id="7_v38yi"]
 [ext_resource type="PackedScene" uid="uid://cvao7hqy8si2n" path="res://src/scenes/UI/GameUI/UpgradesDisplayer/UpgradesDisplayer.tscn" id="8_njjgc"]
+[ext_resource type="PackedScene" uid="uid://bygqxr6igg7k5" path="res://src/scenes/Game/Components/Coin.tscn" id="9_h22ok"]
 
 [node name="Game" type="Node2D"]
 script = ExtResource("1_2odft")
+coinScene = ExtResource("9_h22ok")
 
 [node name="FogEffect" parent="." instance=ExtResource("1_57sbl")]
 layer = -1
@@ -40,11 +42,11 @@ wait_time = 0.75
 autostart = true
 
 [node name="DownChangeCameraButton" parent="." instance=ExtResource("5_nm77w")]
-position = Vector2(960, 1011)
+position = Vector2(683, 1011)
 direction = 1
 
-[node name="UpChangeCameraButton2" parent="." instance=ExtResource("5_nm77w")]
-position = Vector2(960, 1186)
+[node name="UpChangeCameraButton3" parent="." instance=ExtResource("5_nm77w")]
+position = Vector2(1231, 1219)
 
 [node name="PassTimeUI" parent="." instance=ExtResource("6_nm77w")]
 z_index = 3
@@ -74,6 +76,11 @@ offset_top = 1381.0
 offset_right = 1770.0
 offset_bottom = 1793.0
 
+[node name="Timer2" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="clicked" from="DownChangeCameraButton" to="." method="_on_down_change_camera_button_clicked"]
-[connection signal="clicked" from="UpChangeCameraButton2" to="." method="_on_up_change_camera_button_2_clicked"]
+[connection signal="clicked" from="UpChangeCameraButton3" to="." method="_on_up_change_camera_button_2_clicked"]
+[connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
