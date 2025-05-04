@@ -1,6 +1,6 @@
 class_name SunState
 
-var _isGenerating : bool = false
+var _isGenerating : bool = true
 var _currency : int:
 	set(newValue):
 		_currency = newValue

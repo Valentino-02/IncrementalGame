@@ -36,15 +36,15 @@ layer = 2
 position = Vector2(960, 1080)
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 0.75
 autostart = true
 
 [node name="DownChangeCameraButton" parent="." instance=ExtResource("5_nm77w")]
-position = Vector2(960, 1014)
+position = Vector2(960, 1011)
 direction = 1
 
 [node name="UpChangeCameraButton2" parent="." instance=ExtResource("5_nm77w")]
-position = Vector2(960, 1146)
+position = Vector2(960, 1186)
 
 [node name="PassTimeUI" parent="." instance=ExtResource("6_nm77w")]
 z_index = 3
@@ -70,7 +70,7 @@ offset_bottom = 2114.0
 
 [node name="UpgradesDisplayer" parent="." instance=ExtResource("8_njjgc")]
 offset_left = 150.0
-offset_top = 1362.0
+offset_top = 1381.0
 offset_right = 1770.0
 offset_bottom = 1793.0
 

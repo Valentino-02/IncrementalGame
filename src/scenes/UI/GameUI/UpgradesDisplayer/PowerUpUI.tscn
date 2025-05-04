@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cqy4p8e2hnwa7"]
+[gd_scene load_steps=3 format=3 uid="uid://cqy4p8e2hnwa7"]
 
 [ext_resource type="Texture2D" uid="uid://w2y7ldfci4ec" path="res://assets/images/pay-money.png" id="1_hvqgc"]
+[ext_resource type="Script" uid="uid://djaebxl1ayb0f" path="res://src/scenes/UI/GameUI/UpgradesDisplayer/PowerUpUI.gd" id="1_kwp7q"]
 
 [node name="PowerUpUI" type="Control"]
 custom_minimum_size = Vector2(100, 100)
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_kwp7q")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -29,3 +31,5 @@ grow_vertical = 2
 texture = ExtResource("1_hvqgc")
 expand_mode = 1
 stretch_mode = 5
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]

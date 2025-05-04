@@ -17,12 +17,12 @@ texture = ExtResource("1_jusom")
 
 [node name="Sun" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, -390)
+position = Vector2(0, -384)
 texture = ExtResource("2_g0x3a")
 
 [node name="Moon" type="Sprite2D" parent="."]
 unique_name_in_owner = true
-position = Vector2(0, 390)
+position = Vector2(0, 392)
 texture = ExtResource("3_30lqc")
 flip_h = true
 flip_v = true

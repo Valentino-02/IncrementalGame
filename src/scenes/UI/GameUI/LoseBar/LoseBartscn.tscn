@@ -1,0 +1,63 @@
+[gd_scene load_steps=5 format=3 uid="uid://bj67lg1buyigc"]
+
+[ext_resource type="Script" uid="uid://d2yh6m4s6qsmk" path="res://src/scenes/UI/GameUI/LoseBar/LoseBar.gd" id="1_f68rg"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kwd18"]
+bg_color = Color(0.163249, 0.0029968, 0.154088, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.484752, 0.0878594, 0.338457, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+expand_margin_left = 4.0
+expand_margin_top = 4.0
+expand_margin_right = 4.0
+expand_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_f68rg"]
+bg_color = Color(0.796078, 0.498039, 0.141176, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8oejl"]
+bg_color = Color(0.090538, 0.417519, 0.744369, 1)
+
+[node name="LoseBar" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_f68rg")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SunBar" type="ProgressBar" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_kwd18")
+theme_override_styles/fill = SubResource("StyleBoxFlat_f68rg")
+step = 1.0
+fill_mode = 1
+show_percentage = false
+
+[node name="MoonBar" type="ProgressBar" parent="HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 1
+theme_override_styles/background = SubResource("StyleBoxFlat_kwd18")
+theme_override_styles/fill = SubResource("StyleBoxFlat_8oejl")
+step = 1.0
+show_percentage = false

@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bvygpavv7ecpd"]
+[gd_scene load_steps=5 format=3 uid="uid://bvygpavv7ecpd"]
 
 [ext_resource type="PackedScene" uid="uid://ggjmvqcuwdis" path="res://src/scenes/UI/GameUI/CurrencyCounter/CurrencyCounterUI.tscn" id="3_elwfl"]
 [ext_resource type="Texture2D" uid="uid://bysjgbm6p7kg3" path="res://assets/images/MoonIcon.png" id="4_b00as"]
+[ext_resource type="PackedScene" uid="uid://bj67lg1buyigc" path="res://src/scenes/UI/GameUI/LoseBar/LoseBartscn.tscn" id="4_fn6i8"]
 [ext_resource type="Texture2D" uid="uid://cgi3qrab3jdrx" path="res://assets/images/SunIcon.png" id="5_dw237"]
 
 [node name="GameUI" type="Control"]
@@ -34,3 +35,14 @@ grow_horizontal = 0
 mouse_filter = 2
 cycle = 1
 texture = ExtResource("4_b00as")
+
+[node name="LoseBar" parent="." instance=ExtResource("4_fn6i8")]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.2
+anchor_top = 0.01
+anchor_right = 0.8
+anchor_bottom = 0.03
+offset_top = 10.2
+offset_bottom = 10.2
+grow_vertical = 1

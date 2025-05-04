@@ -14,8 +14,20 @@ enum Direction {Up, Down}
 func _ready() -> void:
 	if direction == Direction.Up:
 		_sprite.flip_v = true
+	_floatForever(position)
 
-func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+
+func _floatForever(startPos: Vector2) -> void:
+	var amp := randf_range(5.0, 10.0)  
+	var dur := randf_range(1.0, 1.5)   
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "position", startPos + Vector2(0, -amp), dur)
+	tween.tween_property(self, "position", startPos, dur)
+	await tween.finished
+	_floatForever(startPos)
+
+func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
 		clicked.emit()
 

@@ -1,0 +1,35 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbbpt8vhyxpk6"]
+
+[ext_resource type="Script" uid="uid://cy648l0l43n4n" path="res://src/autoload/PowerUps/PowerUpManager.gd" id="1_835b4"]
+[ext_resource type="Script" uid="uid://dq3cmtvofpbf7" path="res://src/autoload/PowerUps/PowerUpResource.gd" id="2_p3l6b"]
+[ext_resource type="Texture2D" uid="uid://dd2utuu1omhuo" path="res://assets/images/bleeding-eye.png" id="3_4hm2v"]
+[ext_resource type="Texture2D" uid="uid://d3nkgooeguffd" path="res://assets/images/cheerful.png" id="4_rbyb4"]
+
+[sub_resource type="Resource" id="Resource_r515d"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("3_4hm2v")
+title = "Eye of Revelation"
+sunCost = 20
+moonCost = 20
+description = "A grotesque eye, eternally weeping blood, that gazes through the veil of reality.
+Those who dare to look gain insight into forbidden paths, unlocking the first steps of transformation.
+But beware—what is seen cannot be unseen."
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_vhvy6"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("4_rbyb4")
+title = "Crimson Pact"
+sunCost = 0
+moonCost = 0
+description = "A pulsing heart, not your own, beats with unnatural vigor.
+By binding with it, you embrace the strength of ancient blood, gaining vitality beyond mortal limits.
+Yet with every beat, you feel something watching from within."
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[node name="PowerUpManager" type="Node"]
+script = ExtResource("1_835b4")
+powerUps = Dictionary[int, ExtResource("2_p3l6b")]({
+0: SubResource("Resource_r515d"),
+1: SubResource("Resource_vhvy6")
+})

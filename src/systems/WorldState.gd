@@ -11,5 +11,10 @@ func _init() -> void:
 
 func _passTimeClicked() -> void:
 	_cyclesPassed += 1
-	_currentCycle = Types.Cycle.Sun if _currentCycle == Types.Cycle.Moon else Types.Cycle.Moon
+	if _currentCycle == Types.Cycle.Sun:
+		_currentCycle = Types.Cycle.Moon
+		AudioManager.music.enableLowPass()
+	else:
+		_currentCycle = Types.Cycle.Sun
+		AudioManager.music.disableLowPass()
 	SignalBus.cyclePassed.emit(_currentCycle)

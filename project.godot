@@ -25,6 +25,7 @@ RngManager="*res://src/autoload/RngManager/RngManager.gd"
 AudioManager="*res://src/autoload/AudioManager/AudioManager.tscn"
 SignalBus="*res://src/autoload/SignalBus/SignalBus.gd"
 TransitionManager="*res://src/autoload/TransitionManager/TransitionManager.tscn"
+PowerUpManager="*res://src/autoload/PowerUps/PowerUpManager.tscn"
 
 [display]
 

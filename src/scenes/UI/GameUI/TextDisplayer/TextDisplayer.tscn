@@ -1,5 +1,6 @@
-[gd_scene load_steps=2 format=3 uid="uid://rhijis2dd83n"]
+[gd_scene load_steps=3 format=3 uid="uid://rhijis2dd83n"]
 
+[ext_resource type="Script" uid="uid://clos3o2wbudvq" path="res://src/scenes/UI/GameUI/TextDisplayer/TextDisplayer.gd" id="1_o38by"]
 [ext_resource type="Texture2D" uid="uid://w2y7ldfci4ec" path="res://assets/images/pay-money.png" id="1_orpd0"]
 
 [node name="TextDisplayer" type="Control"]
@@ -10,6 +11,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_o38by")
 
 [node name="Panel" type="Panel" parent="."]
 layout_mode = 1
@@ -41,24 +43,24 @@ modulate = Color(1, 0.686275, 0.14902, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Info/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="SunTitle" type="Label" parent="Info/VBoxContainer/HBoxContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "We Need Light..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Info/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="SunCost" type="Label" parent="Info/VBoxContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
-text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="Info/VBoxContainer/HBoxContainer"]
+[node name="Title" type="Label" parent="Info/VBoxContainer/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-text = "Power Up"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -67,21 +69,22 @@ modulate = Color(0.411765, 0.517647, 0.929412, 1)
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Info/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="MoonTitle" type="Label" parent="Info/VBoxContainer/HBoxContainer/VBoxContainer2"]
 layout_mode = 2
 size_flags_vertical = 6
 text = "We Need Dark..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label2" type="Label" parent="Info/VBoxContainer/HBoxContainer/VBoxContainer2"]
+[node name="MoonCost" type="Label" parent="Info/VBoxContainer/HBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 6
-text = "0"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="Label" type="Label" parent="Info/VBoxContainer"]
+[node name="Description" type="Label" parent="Info/VBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 200)
 layout_mode = 2
 size_flags_vertical = 6
@@ -91,6 +94,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="FocusBackground" type="ColorRect" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -100,6 +104,7 @@ grow_vertical = 2
 color = Color(0, 0, 0, 0.666667)
 
 [node name="BuyPanel" type="Panel" parent="."]
+visible = false
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
 anchors_preset = 8

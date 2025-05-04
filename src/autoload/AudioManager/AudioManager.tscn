@@ -4,21 +4,21 @@
 [ext_resource type="Script" uid="uid://b60hxo568dw0w" path="res://src/autoload/AudioManager/Sfx/SfxManager.gd" id="2_7j23j"]
 [ext_resource type="Script" uid="uid://dhwrmwr6mxae8" path="res://src/autoload/AudioManager/Music/MusicManager.gd" id="2_ge8yv"]
 [ext_resource type="Script" uid="uid://b67exh4v0a6ij" path="res://src/autoload/AudioManager/Music/MusicResource.gd" id="3_p58k6"]
-[ext_resource type="AudioStream" uid="uid://dk01hndnku5qn" path="res://assets/music/Pause For Rock.mp3" id="4_8ooo6"]
-[ext_resource type="AudioStream" uid="uid://bdl81wqkmx2u5" path="res://assets/music/Elemental Delivery.mp3" id="4_u4rwl"]
+[ext_resource type="AudioStream" uid="uid://2nc63h6w84r0" path="res://assets/music/Night On Space Bed.mp3" id="4_8ooo6"]
+[ext_resource type="AudioStream" uid="uid://d4aofam62se01" path="res://assets/music/Sun and Moon.mp3" id="5_dsnk3"]
 [ext_resource type="Script" uid="uid://cm215ucy36ahr" path="res://src/autoload/AudioManager/Sfx/SfxResource.gd" id="7_8ooo6"]
 [ext_resource type="AudioStream" uid="uid://ce0ty7xmbm66h" path="res://assets/sfx/Click.mp3" id="8_dsnk3"]
 
 [sub_resource type="Resource" id="Resource_vycle"]
 script = ExtResource("3_p58k6")
 stream = ExtResource("4_8ooo6")
-volume = -4.0
+volume = 0.0
 pitchScale = 1.0
 metadata/_custom_type_script = "uid://b67exh4v0a6ij"
 
 [sub_resource type="Resource" id="Resource_4cy6h"]
 script = ExtResource("3_p58k6")
-stream = ExtResource("4_u4rwl")
+stream = ExtResource("5_dsnk3")
 volume = 0.0
 pitchScale = 1.0
 metadata/_custom_type_script = "uid://b67exh4v0a6ij"
