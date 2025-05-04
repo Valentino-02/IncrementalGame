@@ -69,3 +69,5 @@ func _on_gui_input(event: InputEvent) -> void:
 			_moonCost.text = ""
 			_title.text = ""
 			_description.text = ""
+			_canBuy = false
+			_particles.emitting = false

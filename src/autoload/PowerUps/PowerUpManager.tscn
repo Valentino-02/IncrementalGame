@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://dbbpt8vhyxpk6"]
+[gd_scene load_steps=15 format=3 uid="uid://dbbpt8vhyxpk6"]
 
 [ext_resource type="Script" uid="uid://cy648l0l43n4n" path="res://src/autoload/PowerUps/PowerUpManager.gd" id="1_835b4"]
 [ext_resource type="Script" uid="uid://dq3cmtvofpbf7" path="res://src/autoload/PowerUps/PowerUpResource.gd" id="2_p3l6b"]
 [ext_resource type="Texture2D" uid="uid://dd2utuu1omhuo" path="res://assets/images/bleeding-eye.png" id="3_4hm2v"]
 [ext_resource type="Texture2D" uid="uid://d3nkgooeguffd" path="res://assets/images/cheerful.png" id="4_rbyb4"]
+[ext_resource type="Script" uid="uid://bhp7k6yaomg51" path="res://src/autoload/PowerUps/Strategies/WorldStateStrategy.gd" id="4_vhvy6"]
+[ext_resource type="Texture2D" uid="uid://bwhju6e1dwqli" path="res://assets/images/fireflake.png" id="5_4hm2v"]
+[ext_resource type="Texture2D" uid="uid://crcikabvleip6" path="res://assets/images/moon.png" id="5_rbyb4"]
+[ext_resource type="Script" uid="uid://dulds1fkfh7cw" path="res://src/autoload/PowerUps/Strategies/CurrencyStrategy.gd" id="7_vhvy6"]
 
 [sub_resource type="Resource" id="Resource_r515d"]
 script = ExtResource("2_p3l6b")
@@ -14,22 +18,62 @@ moonCost = 20
 description = "A grotesque eye, eternally weeping blood, that gazes through the veil of reality.
 Those who dare to look gain insight into forbidden paths, unlocking the first steps of transformation.
 But beware—what is seen cannot be unseen."
+strategies = Array[ExtResource("4_vhvy6")]([])
 metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
 
 [sub_resource type="Resource" id="Resource_vhvy6"]
 script = ExtResource("2_p3l6b")
 icon = ExtResource("4_rbyb4")
 title = "Crimson Pact"
-sunCost = 0
-moonCost = 0
+sunCost = 40
+moonCost = 40
 description = "A pulsing heart, not your own, beats with unnatural vigor.
 By binding with it, you embrace the strength of ancient blood, gaining vitality beyond mortal limits.
 Yet with every beat, you feel something watching from within."
+strategies = Array[ExtResource("4_vhvy6")]([])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_fkth6"]
+script = ExtResource("7_vhvy6")
+target = 1
+amount = 2
+metadata/_custom_type_script = "uid://dulds1fkfh7cw"
+
+[sub_resource type="Resource" id="Resource_rbyb4"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("5_rbyb4")
+title = "Umbral Oath"
+sunCost = 30
+moonCost = 0
+description = "The moon weeps in silence, its tears swallowed by the void.
+By swearing fealty in the hush between breaths, you draw deeper from its shadowed well.
+Darkness answers in kind—generous, patient, and ever-hungry."
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_fkth6")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_hn276"]
+script = ExtResource("7_vhvy6")
+target = 0
+amount = 2
+metadata/_custom_type_script = "uid://dulds1fkfh7cw"
+
+[sub_resource type="Resource" id="Resource_323qj"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("5_4hm2v")
+title = "Lumen Covenant"
+sunCost = 0
+moonCost = 30
+description = "The sun speaks in whispers only the initiated can hear.
+Through ritual and reverence, you channel its radiance—not warmth, but raw, searing essence.
+Each invocation burns brighter, yielding more of its blinding truth... and its demands."
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_hn276")])
 metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
 
 [node name="PowerUpManager" type="Node"]
 script = ExtResource("1_835b4")
 powerUps = Dictionary[int, ExtResource("2_p3l6b")]({
 0: SubResource("Resource_r515d"),
-1: SubResource("Resource_vhvy6")
+1: SubResource("Resource_vhvy6"),
+2: SubResource("Resource_rbyb4"),
+3: SubResource("Resource_323qj")
 })

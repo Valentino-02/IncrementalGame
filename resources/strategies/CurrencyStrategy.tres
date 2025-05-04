@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="CurrencyStrategy" load_steps=2 format=3 uid="uid://bj4cxe3vj4w70"]
+
+[ext_resource type="Script" uid="uid://dulds1fkfh7cw" path="res://src/autoload/PowerUps/Strategies/CurrencyStrategy.gd" id="1_tiwwc"]
+
+[resource]
+script = ExtResource("1_tiwwc")
+target = 0
+amount = 2
+metadata/_custom_type_script = "uid://dulds1fkfh7cw"

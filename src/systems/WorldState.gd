@@ -3,6 +3,9 @@ class_name WorldState
 var _sunState := SunState.new() 
 var _moonState := MoonState.new() 
 var _currentCycle : Types.Cycle = Types.Cycle.Sun
+var _lockedPowerUps : Array[PowerUpManager.PowerUpId] = []
+var _unlockedPowerUps : Array[PowerUpManager.PowerUpId] = []
+var _ownedPowerUps: Array[PowerUpManager.PowerUpId] = []
 
 
 func _init() -> void:
@@ -11,6 +14,18 @@ func _init() -> void:
 	SignalBus.moonCurrencyChanged.connect(func(newValue): _onCurrencyChanged(Types.Cycle.Moon, newValue))
 	SignalBus.powerUpBought.connect(_onPowerUpBought)
 
+func getSunState() -> SunState:
+	return _sunState
+
+func getMoonState() -> MoonState:
+	return _moonState
+
+func setStartingConditions() -> void:
+	_lockedPowerUps = PowerUpManager.getAllIds()
+	var newUnlocks = PowerUpManager.takeUnlockedPowerUps(_lockedPowerUps, _ownedPowerUps)
+	_unlockedPowerUps.append_array(newUnlocks)
+	if newUnlocks.size() > 0:
+		SignalBus.unlockedPowerUpsChanged.emit(_unlockedPowerUps)
 
 func changeCycle() -> void:
 	if _currentCycle == Types.Cycle.Sun:
@@ -30,3 +45,14 @@ func _onCurrencyChanged(type: Types.Cycle, newValue: int) -> void:
 func _onPowerUpBought(data: PowerUpResource) -> void:
 	_sunState.pay(data.sunCost)
 	_moonState.pay(data.moonCost)
+	_ownedPowerUps.append(data.getId())
+	var newUnlocks = PowerUpManager.takeUnlockedPowerUps(_lockedPowerUps, _ownedPowerUps)
+	_unlockedPowerUps.erase(data.getId())
+	_unlockedPowerUps.append_array(newUnlocks)
+	_applyStrategies(data.strategies)
+	SignalBus.ownedPowerUpsChanged.emit(_ownedPowerUps)
+	SignalBus.unlockedPowerUpsChanged.emit(_unlockedPowerUps)
+
+func _applyStrategies(strategies: Array[WorldStateStrategy]) -> void:
+	for strategy in strategies:
+		strategy.apply(self)

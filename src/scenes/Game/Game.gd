@@ -10,6 +10,7 @@ var _startingCameraPosition : Vector2
 func _ready() -> void:
 	AudioManager.music.play(MusicManager.MusicId.GameTheme)
 	_startingCameraPosition = _camera.position
+	_worldState.setStartingConditions()
 
 
 func _on_timer_timeout() -> void:

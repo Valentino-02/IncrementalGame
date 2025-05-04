@@ -1,6 +1,7 @@
 class_name MoonState
 
 var _isGenerating : bool = false
+var _currencyPerTick : int = 1
 var _currency : int:
 	set(newValue):
 		_currency = clamp(newValue, 0, 9999)
@@ -15,13 +16,16 @@ func _init() -> void:
 func getCurrency() -> int:
 	return _currency
 
+func setCurrencyPerTick(newValue: int) -> void:
+	_currencyPerTick = newValue
+
 func pay(amount: int) -> void:
 	_currency -= amount
 
 func _onTickAdvanced() -> void:
 	if not _isGenerating:
 		return
-	_currency += 1
+	_currency += _currencyPerTick
 
 func _onCyclePassed(toCycle: Types.Cycle) -> void:
 	if toCycle == Types.Cycle.Moon:
