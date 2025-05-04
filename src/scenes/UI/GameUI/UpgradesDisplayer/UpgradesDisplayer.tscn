@@ -1,0 +1,109 @@
+[gd_scene load_steps=2 format=3 uid="uid://cvao7hqy8si2n"]
+
+[ext_resource type="PackedScene" uid="uid://cqy4p8e2hnwa7" path="res://src/scenes/UI/GameUI/UpgradesDisplayer/PowerUpUI.tscn" id="1_ixex1"]
+
+[node name="UpgradesDisplayer" type="Control"]
+custom_minimum_size = Vector2(1620, 300)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 30
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 30
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/h_separation = 40
+theme_override_constants/v_separation = 40
+columns = 11
+
+[node name="PowerUpUI" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI2" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI3" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI4" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI5" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI6" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI7" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI8" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI9" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI10" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI11" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI12" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI13" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI14" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI15" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI16" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI17" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI18" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI19" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI20" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI21" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI22" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
+
+[node name="PowerUpUI23" parent="MarginContainer/GridContainer" instance=ExtResource("1_ixex1")]
+layout_mode = 2
