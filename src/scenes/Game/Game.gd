@@ -16,6 +16,7 @@ func _on_timer_timeout() -> void:
 	SignalBus.tickAdvanced.emit()
 
 func _on_down_change_camera_button_clicked() -> void:
+	_worldState.changeCycle()
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	tween.tween_property(_camera, "position", _startingCameraPosition + Vector2(10, 0), 0.05)
@@ -25,6 +26,7 @@ func _on_down_change_camera_button_clicked() -> void:
 	tween.tween_property(_camera, "position", _startingCameraPosition + Vector2(0, 1080), 0.15)
 
 func _on_up_change_camera_button_2_clicked() -> void:
+	_worldState.changeCycle()
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
 	tween.tween_property(_camera, "position", _startingCameraPosition + Vector2(-10, 1080), 0.05)

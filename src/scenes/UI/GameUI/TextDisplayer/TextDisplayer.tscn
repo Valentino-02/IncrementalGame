@@ -1,7 +1,26 @@
-[gd_scene load_steps=3 format=3 uid="uid://rhijis2dd83n"]
+[gd_scene load_steps=4 format=3 uid="uid://rhijis2dd83n"]
 
 [ext_resource type="Script" uid="uid://clos3o2wbudvq" path="res://src/scenes/UI/GameUI/TextDisplayer/TextDisplayer.gd" id="1_o38by"]
 [ext_resource type="Texture2D" uid="uid://w2y7ldfci4ec" path="res://assets/images/pay-money.png" id="1_orpd0"]
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_o38by"]
+particle_flag_disable_z = true
+emission_shape_scale = Vector3(80, 80, 1)
+emission_shape = 1
+emission_sphere_radius = 1.0
+angular_velocity_min = 20.0
+angular_velocity_max = 20.0
+orbit_velocity_min = 30.0
+orbit_velocity_max = 30.0
+radial_velocity_min = 0.749978
+radial_velocity_max = 1.24998
+gravity = Vector3(0, 0, 0)
+radial_accel_min = 20.0
+radial_accel_max = 20.0
+tangential_accel_min = 30.0
+tangential_accel_max = 30.0
+scale_min = 3.0
+scale_max = 4.5
 
 [node name="TextDisplayer" type="Control"]
 custom_minimum_size = Vector2(1620, 300)
@@ -94,6 +113,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="FocusBackground" type="ColorRect" parent="."]
+unique_name_in_owner = true
 visible = false
 layout_mode = 1
 anchors_preset = 15
@@ -101,10 +121,11 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 color = Color(0, 0, 0, 0.666667)
 
 [node name="BuyPanel" type="Panel" parent="."]
-visible = false
+unique_name_in_owner = true
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 1
 anchors_preset = 8
@@ -114,6 +135,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="TextureRect" type="TextureRect" parent="BuyPanel"]
 layout_mode = 1
@@ -125,3 +147,17 @@ grow_vertical = 2
 texture = ExtResource("1_orpd0")
 expand_mode = 1
 stretch_mode = 5
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="BuyPanel"]
+unique_name_in_owner = true
+modulate = Color(0.443137, 0, 0.243137, 1)
+position = Vector2(101, 98)
+emitting = false
+amount = 16
+lifetime = 2.0
+speed_scale = 2.0
+process_material = SubResource("ParticleProcessMaterial_o38by")
+
+[connection signal="gui_input" from="." to="." method="_on_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

@@ -9,6 +9,9 @@ enum Direction {Up, Down}
 
 @onready var _particles : GPUParticles2D = %GPUParticles2D
 @onready var _sprite : Sprite2D = %Sprite2D
+@onready var _timer : Timer = %Timer
+
+var _onCooldown : bool = false
 
 
 func _ready() -> void:
@@ -29,10 +32,17 @@ func _floatForever(startPos: Vector2) -> void:
 
 func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.pressed:
+		if _onCooldown:
+			return
 		clicked.emit()
+		_timer.start()
+		_onCooldown = true
 
 func _on_mouse_entered() -> void:
 	_particles.emitting = true
 
 func _on_mouse_exited() -> void:
 	_particles.emitting = false
+
+func _on_timer_timeout() -> void:
+	_onCooldown = false

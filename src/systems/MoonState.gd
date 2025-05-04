@@ -3,7 +3,7 @@ class_name MoonState
 var _isGenerating : bool = false
 var _currency : int:
 	set(newValue):
-		_currency = newValue
+		_currency = clamp(newValue, 0, 9999)
 		SignalBus.moonCurrencyChanged.emit(_currency)
 
 
@@ -11,6 +11,12 @@ func _init() -> void:
 	SignalBus.tickAdvanced.connect(_onTickAdvanced)
 	SignalBus.cyclePassed.connect(_onCyclePassed)
 
+
+func getCurrency() -> int:
+	return _currency
+
+func pay(amount: int) -> void:
+	_currency -= amount
 
 func _onTickAdvanced() -> void:
 	if not _isGenerating:
