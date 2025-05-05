@@ -12,7 +12,7 @@ var _unlockedPowerUps : Array[PowerUpManager.PowerUpId] = []
 var _ownedPowerUps: Array[PowerUpManager.PowerUpId] = []
 var sunCoins := false
 var moonCoins := false
-
+var parent : Game
 
 func _init() -> void:
 	SignalBus.passTimeClicked.connect(changeCycle)
@@ -35,6 +35,8 @@ func setStartingConditions() -> void:
 
 func setMaxCurrency(newValue: int) -> void:
 	_maxCurrency = newValue
+	_sunState.max = _maxCurrency
+	_moonState.max = _maxCurrency
 
 func changeCycle() -> void:
 	if _currentCycle == Types.Cycle.Sun:
@@ -48,7 +50,12 @@ func changeCycle() -> void:
 func winGame() -> void:
 	TransitionManager.shouldWin = true
 	TransitionManager.changeToScene(TransitionManager.SceneId.MainMenu)
-	
+
+func increaseCoinFrecuency(newTime: float) -> void:
+	parent.coinTimer.wait_time = newTime
+
+func increaseCoinCap(newCap: int) -> void:
+	parent.maxCoins = newCap
 
 func _onCurrencyChanged(type: Types.Cycle, newValue: int) -> void:
 	if newValue >= _maxCurrency:

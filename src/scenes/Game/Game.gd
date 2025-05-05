@@ -6,10 +6,11 @@ extends Node2D
 @onready var _camera : Camera2D = %Camera2D
 @onready var _filter : ColorRect = %ColorRect
 @onready var _introLabel : Label = $IntroLabel
+@onready var coinTimer : Timer = $Timer2
 
 var _worldState := WorldState.new()
 var _startingCameraPosition : Vector2
-var _maxCoins = 10
+var maxCoins = 10
 var _coins = 0
 
 
@@ -21,6 +22,7 @@ func _ready() -> void:
 	SignalBus.cyclePassed.connect(_onCycleChanged)
 	_filter.show()
 	_filter.modulate.a = 0.0
+	_worldState.parent = self
 
 
 func _onCycleChanged(toCycle: Types.Cycle) -> void:
@@ -55,11 +57,10 @@ func _on_up_change_camera_button_2_clicked() -> void:
 	tween.tween_property(_camera, "position", _startingCameraPosition, 0.15)
 
 func _onCoinPicked(_type: Types.Cycle) -> void:
-	print("coin picked! ", _coins)
 	_coins -= 1
 
 func _on_timer_2_timeout() -> void:
-	if _coins >= _maxCoins:
+	if _coins >= maxCoins:
 		return
 	if _worldState.sunCoins and _worldState.moonCoins:
 		var coin : Coin = coinScene.instantiate() as Coin
@@ -67,7 +68,6 @@ func _on_timer_2_timeout() -> void:
 		coin.position = Vector2(randf_range(100, 1820), randf_range(100, 980))
 		add_child(coin)
 		_coins += 1
-		print("coin spawned! ", _coins)
 		return
 	if _worldState.sunCoins:
 		var coin : Coin = coinScene.instantiate() as Coin
@@ -75,7 +75,6 @@ func _on_timer_2_timeout() -> void:
 		coin.position = Vector2(randf_range(100, 1820), randf_range(100, 980))
 		add_child(coin)
 		_coins += 1
-		print("coin spawned! ", _coins)
 		return
 	if _worldState.moonCoins:
 		var coin : Coin = coinScene.instantiate() as Coin
@@ -83,7 +82,6 @@ func _on_timer_2_timeout() -> void:
 		coin.position = Vector2(randf_range(100, 1820), randf_range(100, 980))
 		add_child(coin)
 		_coins += 1
-		print("coin spawned! ", _coins)
 		return
 
 func _on_timer_3_timeout() -> void:

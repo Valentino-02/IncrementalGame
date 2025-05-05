@@ -1,4 +1,4 @@
-[gd_scene load_steps=58 format=3 uid="uid://dbbpt8vhyxpk6"]
+[gd_scene load_steps=81 format=3 uid="uid://dbbpt8vhyxpk6"]
 
 [ext_resource type="Script" uid="uid://cy648l0l43n4n" path="res://src/autoload/PowerUps/PowerUpManager.gd" id="1_835b4"]
 [ext_resource type="Script" uid="uid://dq3cmtvofpbf7" path="res://src/autoload/PowerUps/PowerUpResource.gd" id="2_p3l6b"]
@@ -13,6 +13,13 @@
 [ext_resource type="Script" uid="uid://cidigq0dc6ojx" path="res://src/models/Strategies/CoinStrategy.gd" id="8_hn276"]
 [ext_resource type="Texture2D" uid="uid://ckl02npbjn6ms" path="res://assets/images/receive-money.png" id="9_85j2m"]
 [ext_resource type="Texture2D" uid="uid://c1jmh2kt0arv4" path="res://assets/images/warlock-eye.png" id="13_potpd"]
+[ext_resource type="Resource" uid="uid://c2yqfaufsq4x6" path="res://resources/strategies/WinStrategy.tres" id="14_iq0bq"]
+[ext_resource type="Texture2D" uid="uid://dr3a23u8s8s7j" path="res://assets/images/coins-pile.png" id="15_vdst4"]
+[ext_resource type="Texture2D" uid="uid://bujhbm7s4mt5i" path="res://assets/images/coins.png" id="16_by7sa"]
+[ext_resource type="Script" uid="uid://bwsorujygjm8s" path="res://src/models/Strategies/CoinStatsStrategy.gd" id="16_dr3cl"]
+[ext_resource type="Texture2D" uid="uid://ddrmb6siwen7o" path="res://assets/images/caduceus.png" id="18_bqph5"]
+[ext_resource type="Script" uid="uid://dxyc0o1m4rd24" path="res://src/models/Strategies/CurrencyLostStrategy.gd" id="19_6t36x"]
+[ext_resource type="Texture2D" uid="uid://b8ltpx1jsr6eu" path="res://assets/images/rod-of-asclepius.png" id="20_m37vf"]
 
 [sub_resource type="Resource" id="Resource_potpd"]
 script = ExtResource("2_p3l6b")
@@ -193,7 +200,7 @@ metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
 
 [sub_resource type="Resource" id="Resource_8gy00"]
 script = ExtResource("6_323qj")
-amount = 999
+amount = 1000
 metadata/_custom_type_script = "uid://hd12f6fehvcb"
 
 [sub_resource type="Resource" id="Resource_pd6wh"]
@@ -405,15 +412,149 @@ icon = ExtResource("13_potpd")
 title = "Become the Locus"
 sunCost = 950
 moonCost = 950
-description = "There is nothing left to reach—because you are now the center.
-The light burns within you. The dark coils through your veins.
-No longer a vessel. No longer a seeker.
-You are the wound in the world where the gods converge.
-
-And the world will never close.
-
+description = "There is nothing left to reach—because you are now the center. The light burns within you. The dark coils through your veins. No longer a vessel. No longer a seeker.
 [You have won. But something else has begun.]"
-strategies = Array[ExtResource("4_vhvy6")]([])
+strategies = Array[ExtResource("4_vhvy6")]([ExtResource("14_iq0bq")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_xdtrk"]
+script = ExtResource("16_dr3cl")
+type = 1
+amount = 2.0
+metadata/_custom_type_script = "uid://bwsorujygjm8s"
+
+[sub_resource type="Resource" id="Resource_244d7"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("15_vdst4")
+title = "Rain of Forgotten Offerings"
+sunCost = 50
+moonCost = 20
+description = "The veil thins, and with it, the offerings fall more freely.
+What once required devotion now tumbles like ash from a broken altar."
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_xdtrk")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_qpmyn"]
+script = ExtResource("16_dr3cl")
+type = 1
+amount = 1.0
+metadata/_custom_type_script = "uid://bwsorujygjm8s"
+
+[sub_resource type="Resource" id="Resource_7hl6b"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("15_vdst4")
+title = "Rain of Forgotten Offerings 2"
+sunCost = 80
+moonCost = 30
+description = "The veil thins, and with it, the offerings fall more freely.
+What once required devotion now tumbles like ash from a broken altar."
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_qpmyn")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_bf0ko"]
+script = ExtResource("16_dr3cl")
+type = 0
+amount = 15.0
+metadata/_custom_type_script = "uid://bwsorujygjm8s"
+
+[sub_resource type="Resource" id="Resource_3akdp"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("16_by7sa")
+title = "Tithe Overflow"
+sunCost = 20
+moonCost = 50
+description = "Your devotion spills past the limits once set in stone.
+The world strains under the weight of uncollected offerings, yet more can remain.
+"
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_bf0ko")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_x8y6e"]
+script = ExtResource("16_dr3cl")
+type = 0
+amount = 20.0
+metadata/_custom_type_script = "uid://bwsorujygjm8s"
+
+[sub_resource type="Resource" id="Resource_6xjef"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("16_by7sa")
+title = "Tithe Overflow 2"
+sunCost = 30
+moonCost = 80
+description = "Your devotion spills past the limits once set in stone.
+The world strains under the weight of uncollected offerings, yet more can remain.
+"
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_x8y6e")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_t1xkv"]
+script = ExtResource("19_6t36x")
+target = 0
+factor = 2
+metadata/_custom_type_script = "uid://dxyc0o1m4rd24"
+
+[sub_resource type="Resource" id="Resource_3d3ub"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("18_bqph5")
+title = "Grip of the Burning Brand"
+sunCost = 10
+moonCost = 25
+description = "The sun marks what it gives with searing intention.
+Its radiance lingers, refusing to scatter fully when you are emptied.
+"
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_t1xkv")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_5dkgb"]
+script = ExtResource("19_6t36x")
+target = 0
+factor = 3
+metadata/_custom_type_script = "uid://dxyc0o1m4rd24"
+
+[sub_resource type="Resource" id="Resource_s6o3g"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("18_bqph5")
+title = "Grip of the Burning Brand 2"
+sunCost = 20
+moonCost = 50
+description = "The sun marks what it gives with searing intention.
+Its radiance lingers, refusing to scatter fully when you are emptied.
+"
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_5dkgb")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_d4fjp"]
+script = ExtResource("19_6t36x")
+target = 1
+factor = 2
+metadata/_custom_type_script = "uid://dxyc0o1m4rd24"
+
+[sub_resource type="Resource" id="Resource_6vd4n"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("20_m37vf")
+title = "Cling of the Pale Dusk"
+sunCost = 25
+moonCost = 10
+description = "The moon cradles what is hers, reluctant to let go.
+Her shadow clings tighter, slowing the drain when your vessel overflows."
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_d4fjp")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_p2k6v"]
+script = ExtResource("19_6t36x")
+target = 1
+factor = 3
+metadata/_custom_type_script = "uid://dxyc0o1m4rd24"
+
+[sub_resource type="Resource" id="Resource_78vn2"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("20_m37vf")
+title = "Cling of the Pale Dusk 2"
+sunCost = 50
+moonCost = 20
+description = "The moon cradles what is hers, reluctant to let go.
+Her shadow clings tighter, slowing the drain when your vessel overflows."
+strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_p2k6v")])
 metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
 
 [node name="PowerUpManager" type="Node"]
@@ -442,5 +583,13 @@ powerUps = Dictionary[int, ExtResource("2_p3l6b")]({
 20: SubResource("Resource_4dxhi"),
 21: SubResource("Resource_4s8ms"),
 22: SubResource("Resource_k3ts4"),
-23: SubResource("Resource_en2sg")
+23: SubResource("Resource_en2sg"),
+24: SubResource("Resource_244d7"),
+25: SubResource("Resource_7hl6b"),
+26: SubResource("Resource_3akdp"),
+27: SubResource("Resource_6xjef"),
+28: SubResource("Resource_3d3ub"),
+29: SubResource("Resource_s6o3g"),
+30: SubResource("Resource_6vd4n"),
+31: SubResource("Resource_78vn2")
 })

@@ -4,9 +4,11 @@ var _isGenerating : bool = true
 var _currencyPerTick : int = 1
 var _currency : int:
 	set(newValue):
-		_currency = clamp(newValue, 0, 999)
+		_currency = clamp(newValue, 0, max)
 		SignalBus.sunCurrencyChanged.emit(_currency)
 
+var max : int = 10
+var factor : int = 1
 
 func _init() -> void:
 	SignalBus.tickAdvanced.connect(_onTickAdvanced)
@@ -36,7 +38,7 @@ func _onCyclePassed(toCycle: Types.Cycle) -> void:
 		_isGenerating = false
 
 func _onMaxCurrencyReached() -> void:
-	_currency = 0
+	_currency -= max/factor
 
 func _onCoinPicked(type: Types.Cycle) -> void:
 	if type != Types.Cycle.Sun:
