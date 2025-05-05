@@ -139,8 +139,8 @@ metadata/_custom_type_script = "uid://hd12f6fehvcb"
 script = ExtResource("2_p3l6b")
 icon = ExtResource("4_rbyb4")
 title = "Crimson Pact 6"
-sunCost = 80
-moonCost = 80
+sunCost = 60
+moonCost = 60
 description = "A pulsing heart, beats with unnatural vigor.
 By binding with it, your vitality grows higher, allowing you to reach higher places.
 Yet with every beat, you feel something watching from within."
@@ -156,8 +156,8 @@ metadata/_custom_type_script = "uid://hd12f6fehvcb"
 script = ExtResource("2_p3l6b")
 icon = ExtResource("4_rbyb4")
 title = "Crimson Pact 7"
-sunCost = 100
-moonCost = 100
+sunCost = 90
+moonCost = 90
 description = "A pulsing heart, beats with unnatural vigor.
 By binding with it, your vitality grows higher, allowing you to reach higher places.
 Yet with every beat, you feel something watching from within."
