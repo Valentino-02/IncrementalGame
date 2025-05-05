@@ -34,6 +34,7 @@ func _on_input_event(_viewport: Node, event: InputEvent, _shape_idx: int) -> voi
 	if event is InputEventMouseButton and event.pressed:
 		if _onCooldown:
 			return
+		AudioManager.sfx.play(SfxManager.SfxId.ChangeScreen)
 		clicked.emit()
 		_timer.start()
 		_onCooldown = true

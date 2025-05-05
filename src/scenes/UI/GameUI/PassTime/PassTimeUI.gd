@@ -27,6 +27,7 @@ func _on_button_pressed() -> void:
 	_particles.emitting = false
 	_timer.start()
 	SignalBus.passTimeClicked.emit()
+	AudioManager.sfx.play(SfxManager.SfxId.AdvanceCycle)
 
 func _on_timer_timeout() -> void:
 	_button.disabled = false

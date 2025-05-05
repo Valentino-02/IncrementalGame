@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bbdupqg18fvm7"
+path="res://.godot/imported/Eldritch Power Up.mp3-7e23d7d188f9b094312c792126bea48e.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Eldritch Power Up.mp3"
+dest_files=["res://.godot/imported/Eldritch Power Up.mp3-7e23d7d188f9b094312c792126bea48e.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

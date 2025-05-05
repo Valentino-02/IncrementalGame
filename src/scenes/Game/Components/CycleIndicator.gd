@@ -11,7 +11,7 @@ func _ready() -> void:
 
 
 func _floatForever(sprite: Sprite2D, startPos: Vector2) -> void:
-	var amp := randf_range(15, 17.5)  
+	var amp := randf_range(40, 60)  
 	var dur := randf_range(0.75, 0.75)   
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)

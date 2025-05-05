@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bk6c4tww78yhq"]
+[gd_scene load_steps=22 format=3 uid="uid://bk6c4tww78yhq"]
 
 [ext_resource type="Script" uid="uid://6mmbqgcmbnkt" path="res://src/autoload/AudioManager/AudioManager.gd" id="1_7j23j"]
 [ext_resource type="Script" uid="uid://b60hxo568dw0w" path="res://src/autoload/AudioManager/Sfx/SfxManager.gd" id="2_7j23j"]
@@ -8,6 +8,11 @@
 [ext_resource type="AudioStream" uid="uid://d4aofam62se01" path="res://assets/music/Sun and Moon.mp3" id="5_dsnk3"]
 [ext_resource type="Script" uid="uid://cm215ucy36ahr" path="res://src/autoload/AudioManager/Sfx/SfxResource.gd" id="7_8ooo6"]
 [ext_resource type="AudioStream" uid="uid://ce0ty7xmbm66h" path="res://assets/sfx/Click.mp3" id="8_dsnk3"]
+[ext_resource type="AudioStream" uid="uid://toty1t0v6mxy" path="res://assets/sfx/Turning Machine.mp3" id="9_munpx"]
+[ext_resource type="AudioStream" uid="uid://b1o1l525wo5n8" path="res://assets/sfx/Ancient Machine.mp3" id="10_ex2we"]
+[ext_resource type="AudioStream" uid="uid://6dnppbpk6an3" path="res://assets/sfx/Machine Select.mp3" id="11_t07ss"]
+[ext_resource type="AudioStream" uid="uid://ctydo3u6h0b75" path="res://assets/sfx/Rewind Clock.mp3" id="12_ctta6"]
+[ext_resource type="AudioStream" uid="uid://bbdupqg18fvm7" path="res://assets/sfx/Eldritch Power Up.mp3" id="13_imgi5"]
 
 [sub_resource type="Resource" id="Resource_vycle"]
 script = ExtResource("3_p58k6")
@@ -29,6 +34,52 @@ stream = ExtResource("8_dsnk3")
 volume = 0.0
 pitchScale = 1.0
 limit = 5
+startFrom = 0.0
+metadata/_custom_type_script = "uid://cm215ucy36ahr"
+
+[sub_resource type="Resource" id="Resource_egq4x"]
+script = ExtResource("7_8ooo6")
+stream = ExtResource("9_munpx")
+volume = 0.0
+pitchScale = 1.0
+limit = 5
+startFrom = 0.0
+metadata/_custom_type_script = "uid://cm215ucy36ahr"
+
+[sub_resource type="Resource" id="Resource_080kg"]
+script = ExtResource("7_8ooo6")
+stream = ExtResource("10_ex2we")
+volume = 10.0
+pitchScale = 1.0
+limit = 5
+startFrom = 0.2
+metadata/_custom_type_script = "uid://cm215ucy36ahr"
+
+[sub_resource type="Resource" id="Resource_kx8bi"]
+script = ExtResource("7_8ooo6")
+stream = ExtResource("11_t07ss")
+volume = 0.0
+pitchScale = 1.0
+limit = 5
+startFrom = 0.12
+metadata/_custom_type_script = "uid://cm215ucy36ahr"
+
+[sub_resource type="Resource" id="Resource_jode2"]
+script = ExtResource("7_8ooo6")
+stream = ExtResource("12_ctta6")
+volume = 3.0
+pitchScale = 1.0
+limit = 5
+startFrom = 0.28
+metadata/_custom_type_script = "uid://cm215ucy36ahr"
+
+[sub_resource type="Resource" id="Resource_h17n5"]
+script = ExtResource("7_8ooo6")
+stream = ExtResource("13_imgi5")
+volume = 25.0
+pitchScale = 1.0
+limit = 5
+startFrom = 0.38
 metadata/_custom_type_script = "uid://cm215ucy36ahr"
 
 [node name="AudioManager" type="Node"]
@@ -49,5 +100,10 @@ bus = &"Music"
 unique_name_in_owner = true
 script = ExtResource("2_7j23j")
 preloadedSfx = Dictionary[int, ExtResource("7_8ooo6")]({
-0: SubResource("Resource_qrd4w")
+0: SubResource("Resource_qrd4w"),
+1: SubResource("Resource_egq4x"),
+2: SubResource("Resource_080kg"),
+3: SubResource("Resource_kx8bi"),
+4: SubResource("Resource_jode2"),
+5: SubResource("Resource_h17n5")
 })

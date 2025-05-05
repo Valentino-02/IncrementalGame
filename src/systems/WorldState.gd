@@ -45,8 +45,14 @@ func changeCycle() -> void:
 		AudioManager.music.disableLowPass()
 	SignalBus.cyclePassed.emit(_currentCycle)
 
+func winGame() -> void:
+	TransitionManager.shouldWin = true
+	TransitionManager.changeToScene(TransitionManager.SceneId.MainMenu)
+	
+
 func _onCurrencyChanged(type: Types.Cycle, newValue: int) -> void:
 	if newValue >= _maxCurrency:
+		AudioManager.sfx.play(SfxManager.SfxId.LoseProgress)
 		SignalBus.maxCurrencyReached.emit()
 	if type == Types.Cycle.Sun:
 		SignalBus.currencyChanged.emit(newValue, _moonState.getCurrency())

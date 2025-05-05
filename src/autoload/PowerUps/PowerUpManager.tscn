@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://dbbpt8vhyxpk6"]
+[gd_scene load_steps=58 format=3 uid="uid://dbbpt8vhyxpk6"]
 
 [ext_resource type="Script" uid="uid://cy648l0l43n4n" path="res://src/autoload/PowerUps/PowerUpManager.gd" id="1_835b4"]
 [ext_resource type="Script" uid="uid://dq3cmtvofpbf7" path="res://src/autoload/PowerUps/PowerUpResource.gd" id="2_p3l6b"]
@@ -11,6 +11,8 @@
 [ext_resource type="Texture2D" uid="uid://doq7rb5r7km20" path="res://assets/images/coinflip.png" id="7_fkth6"]
 [ext_resource type="Script" uid="uid://dulds1fkfh7cw" path="res://src/models/Strategies/CurrencyStrategy.gd" id="7_vhvy6"]
 [ext_resource type="Script" uid="uid://cidigq0dc6ojx" path="res://src/models/Strategies/CoinStrategy.gd" id="8_hn276"]
+[ext_resource type="Texture2D" uid="uid://ckl02npbjn6ms" path="res://assets/images/receive-money.png" id="9_85j2m"]
+[ext_resource type="Texture2D" uid="uid://c1jmh2kt0arv4" path="res://assets/images/warlock-eye.png" id="13_potpd"]
 
 [sub_resource type="Resource" id="Resource_potpd"]
 script = ExtResource("2_p3l6b")
@@ -230,7 +232,7 @@ metadata/_custom_type_script = "uid://cidigq0dc6ojx"
 
 [sub_resource type="Resource" id="Resource_q30ao"]
 script = ExtResource("2_p3l6b")
-icon = ExtResource("7_fkth6")
+icon = ExtResource("9_85j2m")
 title = "Trace of the Hollow Offering"
 sunCost = 15
 moonCost = 5
@@ -342,7 +344,7 @@ metadata/_custom_type_script = "uid://dulds1fkfh7cw"
 [sub_resource type="Resource" id="Resource_3jy6i"]
 script = ExtResource("2_p3l6b")
 icon = ExtResource("5_4hm2v")
-title = "Lumen Covenant"
+title = "Lumen Covenant 2"
 sunCost = 50
 moonCost = 100
 description = "The sun speaks in whispers only the devoted can endure.
@@ -359,7 +361,7 @@ metadata/_custom_type_script = "uid://dulds1fkfh7cw"
 [sub_resource type="Resource" id="Resource_4dxhi"]
 script = ExtResource("2_p3l6b")
 icon = ExtResource("5_4hm2v")
-title = "Lumen Covenant"
+title = "Lumen Covenant 3"
 sunCost = 100
 moonCost = 200
 description = "The sun speaks in whispers only the devoted can endure.
@@ -376,12 +378,42 @@ metadata/_custom_type_script = "uid://dulds1fkfh7cw"
 [sub_resource type="Resource" id="Resource_4s8ms"]
 script = ExtResource("2_p3l6b")
 icon = ExtResource("5_4hm2v")
-title = "Lumen Covenant"
+title = "Lumen Covenant 4"
 sunCost = 250
 moonCost = 500
 description = "The sun speaks in whispers only the devoted can endure.
 Through ritual and reverence, you channel its radiance—not warmth, but a searing, hungry light."
 strategies = Array[ExtResource("4_vhvy6")]([SubResource("Resource_n878u")])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_k3ts4"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("3_4hm2v")
+title = "Embrace the Maw"
+sunCost = 750
+moonCost = 750
+description = "You’ve gone beyond the veil—now you drift in its depths, where names unravel and thought festers.
+It wants more: more light, more dark, more you.
+And you give it—willingly, hungrily.
+Each step forward is a step away from yourself… and closer to something else entirely."
+strategies = Array[ExtResource("4_vhvy6")]([])
+metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
+
+[sub_resource type="Resource" id="Resource_en2sg"]
+script = ExtResource("2_p3l6b")
+icon = ExtResource("13_potpd")
+title = "Become the Locus"
+sunCost = 950
+moonCost = 950
+description = "There is nothing left to reach—because you are now the center.
+The light burns within you. The dark coils through your veins.
+No longer a vessel. No longer a seeker.
+You are the wound in the world where the gods converge.
+
+And the world will never close.
+
+[You have won. But something else has begun.]"
+strategies = Array[ExtResource("4_vhvy6")]([])
 metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
 
 [node name="PowerUpManager" type="Node"]
@@ -408,5 +440,7 @@ powerUps = Dictionary[int, ExtResource("2_p3l6b")]({
 18: SubResource("Resource_kvxdj"),
 19: SubResource("Resource_3jy6i"),
 20: SubResource("Resource_4dxhi"),
-21: SubResource("Resource_4s8ms")
+21: SubResource("Resource_4s8ms"),
+22: SubResource("Resource_k3ts4"),
+23: SubResource("Resource_en2sg")
 })

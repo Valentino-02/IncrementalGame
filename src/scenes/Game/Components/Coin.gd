@@ -22,7 +22,7 @@ func setType(type: Types.Cycle) -> void:
 	_type = type
 
 func _floatForever(startPos: Vector2) -> void:
-	var amp := randf_range(5.0, 10.0)  
+	var amp := randf_range(15.0, 20.0)  
 	var dur := randf_range(1.5, 2.0)   
 	var tween = create_tween()
 	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
@@ -37,6 +37,7 @@ func _on_area_2d_input_event(_viewport: Node, event: InputEvent, _shape_idx: int
 		if _clicked:
 			return
 		_clicked = true
+		AudioManager.sfx.play(SfxManager.SfxId.CollectCoin)
 		SignalBus.coinCollected.emit(_type)
 		var tween = create_tween()
 		tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)

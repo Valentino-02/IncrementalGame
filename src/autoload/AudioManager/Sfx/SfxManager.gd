@@ -3,6 +3,11 @@ extends Node2D
 
 enum SfxId {
 	Click,
+	AdvanceCycle,
+	ChangeScreen,
+	CollectCoin,
+	LoseProgress,
+	PurchasePower
 }
 
 const SFX_BUS_NAME = 'Sfx'
@@ -36,7 +41,7 @@ func playAtPosition(id: SfxId, pos: Vector2) -> void:
 	player2D.finished.connect(sfx._onAudioFinished)
 	player2D.finished.connect(player2D.queue_free)
 	add_child(player2D)
-	player2D.play()
+	player2D.play(sfx.startFrom)
 
 func play(id: SfxId) -> void:
 	var sfx : SfxResource = preloadedSfx.get(id) as SfxResource
@@ -54,7 +59,7 @@ func play(id: SfxId) -> void:
 	player.finished.connect(sfx._onAudioFinished)
 	player.finished.connect(player.queue_free)
 	add_child(player)
-	player.play()
+	player.play(sfx.startFrom)
 
 
 func _setSfxBus() -> void:

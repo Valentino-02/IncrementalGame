@@ -1,9 +1,18 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwioj2tfqj51y"]
+[gd_scene load_steps=7 format=3 uid="uid://bwioj2tfqj51y"]
 
 [ext_resource type="Script" uid="uid://dvik45ebl4tut" path="res://src/scenes/Game/Components/CycleIndicator.gd" id="1_30lqc"]
 [ext_resource type="Texture2D" uid="uid://c20f04qnko2pr" path="res://assets/images/Ring.png" id="1_jusom"]
 [ext_resource type="Texture2D" uid="uid://cgi3qrab3jdrx" path="res://assets/images/SunIcon.png" id="2_g0x3a"]
 [ext_resource type="Texture2D" uid="uid://bysjgbm6p7kg3" path="res://assets/images/MoonIcon.png" id="3_30lqc"]
+
+[sub_resource type="Gradient" id="Gradient_h22ok"]
+offsets = PackedFloat32Array(0, 0.693208)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_30lqc"]
+gradient = SubResource("Gradient_h22ok")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
 
 [node name="CycleIndicator" type="Node2D"]
 scale = Vector2(0.5, 0.5)
@@ -20,9 +29,23 @@ unique_name_in_owner = true
 position = Vector2(0, -384)
 texture = ExtResource("2_g0x3a")
 
+[node name="PointLight2D" type="PointLight2D" parent="Sun"]
+position = Vector2(-2, -6)
+color = Color(0.666516, 0.262854, 0.771851, 1)
+energy = 3.5
+texture = SubResource("GradientTexture2D_30lqc")
+texture_scale = 10.0
+
 [node name="Moon" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, 392)
 texture = ExtResource("3_30lqc")
 flip_h = true
 flip_v = true
+
+[node name="PointLight2D2" type="PointLight2D" parent="Moon"]
+position = Vector2(-4, -58)
+color = Color(0.666516, 0.262854, 0.771851, 1)
+energy = 2.6
+texture = SubResource("GradientTexture2D_30lqc")
+texture_scale = 10.0

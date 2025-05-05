@@ -23,6 +23,8 @@ enum PowerUpId{
 	MoreSun2,
 	MoreSun3,
 	MoreSun4,
+	UpgradesUnlock3,
+	WinGame
 }
 
 @export var powerUps : Dictionary[PowerUpId, PowerUpResource]
@@ -30,6 +32,8 @@ enum PowerUpId{
 var _unlockGraph: Dictionary[PowerUpId, Array] = {
 	PowerUpId.UpgradesUnlock1: [],
 	PowerUpId.UpgradesUnlock2: [PowerUpId.UpgradesUnlock1],
+	PowerUpId.UpgradesUnlock3: [PowerUpId.UpgradesUnlock2],
+	PowerUpId.WinGame: [PowerUpId.UpgradesUnlock3, PowerUpId.MoreMoon3, PowerUpId.MoreSun3],
 	PowerUpId.MaxHealth1: [PowerUpId.UpgradesUnlock1],
 	PowerUpId.MaxHealth2: [PowerUpId.MaxHealth1],
 	PowerUpId.MaxHealth3: [PowerUpId.MaxHealth2],

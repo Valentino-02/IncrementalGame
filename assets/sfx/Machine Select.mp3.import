@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://6dnppbpk6an3"
+path="res://.godot/imported/Machine Select.mp3-5d46f3ff2f062a17d488e1c072f46cd5.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Machine Select.mp3"
+dest_files=["res://.godot/imported/Machine Select.mp3-5d46f3ff2f062a17d488e1c072f46cd5.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

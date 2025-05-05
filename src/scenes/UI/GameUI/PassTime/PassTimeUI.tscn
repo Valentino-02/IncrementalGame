@@ -53,7 +53,7 @@ offset_bottom = 24.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_default_cursor_shape = 2
-text = "Advance Cycle..."
+text = "Change..."
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="Button"]
 unique_name_in_owner = true

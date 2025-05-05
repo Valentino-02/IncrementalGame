@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://ctydo3u6h0b75"
+path="res://.godot/imported/Rewind Clock.mp3-f506bc5a49b7069626c8ffd6e5e3a156.mp3str"
+
+[deps]
+
+source_file="res://assets/sfx/Rewind Clock.mp3"
+dest_files=["res://.godot/imported/Rewind Clock.mp3-f506bc5a49b7069626c8ffd6e5e3a156.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -27,12 +27,26 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-color = Color(0.0320907, 2.05759e-06, 0.0320902, 1)
+color = Color(0.0412968, 2.65321e-06, 0.0412962, 1)
 
 [node name="UI" type="CanvasLayer" parent="."]
 layer = 2
 
 [node name="GameUI" parent="UI" instance=ExtResource("2_klkct")]
+
+[node name="BlackFilter" type="CanvasLayer" parent="."]
+layer = 3
+
+[node name="ColorRect" type="ColorRect" parent="BlackFilter"]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
 
 [node name="CycleIndicator" parent="." instance=ExtResource("4_m5ppy")]
 position = Vector2(960, 1080)
@@ -80,7 +94,39 @@ offset_bottom = 1793.0
 wait_time = 4.0
 autostart = true
 
+[node name="IntroLabel" type="Label" parent="."]
+modulate = Color(0.960784, 0, 0.505882, 1)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 146.0
+offset_top = 148.0
+offset_right = 1760.0
+offset_bottom = 818.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/outline_size = 20
+theme_override_font_sizes/font_size = 40
+text = "They seep in, Light and Dark, dripping through your mind like wet rot.
+Too much, and you burst, It spills out...
+
+But they come back, so worry not, ease your mind.
+
+Take what you can. Change what you must.
+Become what the hunger needs… before it eats through you."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+
+[node name="Timer3" type="Timer" parent="."]
+wait_time = 30.0
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="clicked" from="DownChangeCameraButton" to="." method="_on_down_change_camera_button_clicked"]
 [connection signal="clicked" from="UpChangeCameraButton3" to="." method="_on_up_change_camera_button_2_clicked"]
 [connection signal="timeout" from="Timer2" to="." method="_on_timer_2_timeout"]
+[connection signal="timeout" from="Timer3" to="." method="_on_timer_3_timeout"]

@@ -4,7 +4,7 @@ var _isGenerating : bool = false
 var _currencyPerTick : int = 1
 var _currency : int:
 	set(newValue):
-		_currency = clamp(newValue, 0, 9999)
+		_currency = clamp(newValue, 0, 999)
 		SignalBus.moonCurrencyChanged.emit(_currency)
 
 

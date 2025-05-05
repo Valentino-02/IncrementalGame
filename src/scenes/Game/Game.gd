@@ -4,6 +4,8 @@ extends Node2D
 @export var coinScene : PackedScene
 
 @onready var _camera : Camera2D = %Camera2D
+@onready var _filter : ColorRect = %ColorRect
+@onready var _introLabel : Label = $IntroLabel
 
 var _worldState := WorldState.new()
 var _startingCameraPosition : Vector2
@@ -16,7 +18,18 @@ func _ready() -> void:
 	_startingCameraPosition = _camera.position
 	_worldState.setStartingConditions()
 	SignalBus.coinCollected.connect(_onCoinPicked)
+	SignalBus.cyclePassed.connect(_onCycleChanged)
+	_filter.show()
+	_filter.modulate.a = 0.0
 
+
+func _onCycleChanged(toCycle: Types.Cycle) -> void:
+	var tween = create_tween()
+	tween.set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_SINE)
+	if toCycle == Types.Cycle.Sun:
+		tween.tween_property(_filter, "modulate:a", 0.0, 0.5)
+	if toCycle == Types.Cycle.Moon:
+		tween.tween_property(_filter, "modulate:a", 0.2, 0.5)
 
 func _on_timer_timeout() -> void:
 	SignalBus.tickAdvanced.emit()
@@ -72,3 +85,10 @@ func _on_timer_2_timeout() -> void:
 		_coins += 1
 		print("coin spawned! ", _coins)
 		return
+
+func _on_timer_3_timeout() -> void:
+	var tween = create_tween()
+	tween.set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_IN)
+	tween.tween_property(_introLabel, "modulate:a", 0.0, 20)
+	await tween.finished
+	_introLabel.hide()

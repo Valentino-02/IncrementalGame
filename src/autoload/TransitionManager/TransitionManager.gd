@@ -11,6 +11,7 @@ const TRANSITION_TIME = 2.0
 
 @onready var _colorRect: ColorRect = $ColorRect
 
+var shouldWin : bool = false
 
 func _ready() -> void:
 	_colorRect.modulate.a = 0.0

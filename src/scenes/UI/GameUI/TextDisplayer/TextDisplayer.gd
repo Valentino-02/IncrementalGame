@@ -62,6 +62,7 @@ func _on_gui_input(event: InputEvent) -> void:
 		if event.button_index == MOUSE_BUTTON_LEFT:
 			if not _canBuy:
 				return
+			AudioManager.sfx.play(SfxManager.SfxId.PurchasePower)
 			SignalBus.powerUpBought.emit(_currentData)
 			_on_mouse_exited()
 			_currentData = null
