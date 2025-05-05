@@ -397,8 +397,8 @@ metadata/_custom_type_script = "uid://dq3cmtvofpbf7"
 script = ExtResource("2_p3l6b")
 icon = ExtResource("3_4hm2v")
 title = "Embrace the Maw"
-sunCost = 750
-moonCost = 750
+sunCost = 500
+moonCost = 500
 description = "You’ve gone beyond the veil—now you drift in its depths, where names unravel and thought festers.
 It wants more: more light, more dark, more you.
 And you give it—willingly, hungrily.
